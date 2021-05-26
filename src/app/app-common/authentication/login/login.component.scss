@@ -1,0 +1,51 @@
+.login-form-container{
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    flex-direction: column;
+}
+
+.form {
+    background-color: rgb(224, 220, 220);
+    display: block;
+    padding: 20px;
+    border-radius: 10%;
+    width: 20rem;
+}
+.signup-form {
+    background-color: rgb(224, 220, 220);
+    display: block;
+    padding: 20px;
+    border-radius: 10%;
+    width: 40rem;
+}
+.signup-form  mat-form-field {
+    display: inline-block;
+    width: 18rem;
+    padding: 1rem;
+}
+.form mat-form-field {
+    display: inline;
+    padding: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+.button-group button {
+    flex: 1 1 auto;
+    margin: 5px;
+}
+
+mat-radio-button {
+    padding: 10px;
+}

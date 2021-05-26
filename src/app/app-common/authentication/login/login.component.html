@@ -1,0 +1,93 @@
+<div class="login-form-container">
+  <div class="mat-radio">
+    <mat-radio-group (change)="radioChange($event)" [value]="'L'">
+      <mat-radio-button value="L">Login</mat-radio-button>
+      <mat-radio-button value="S">Sign Up</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <form [formGroup]="loginForm" class="form" *ngIf="isLoginForm">
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label> Username </mat-label>
+      <input
+        formControlName="username"
+        placeholder="username"
+        type="text"
+        matInput
+      />
+      <mat-error *ngIf="username?.hasError('required')"
+        >please enter username</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label> Password </mat-label>
+      <input
+        formControlName="password"
+        placeholder="password"
+        type="text"
+        matInput
+      />
+      <mat-error *ngIf="password?.hasError('required')"
+        >please enter password</mat-error
+      >
+    </mat-form-field>
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+      <button mat-raised-button color="accent" (click)="loginForm.reset();$event.preventDefault()">
+        Reset
+      </button>
+    </div>
+  </form>
+  <form [formGroup]="signUpForm"  [ngClass]="{'signup-form': isSignUpForm}" *ngIf="isSignUpForm">
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label> Name </mat-label>
+      <input formControlName="name" placeholder="name" type="text" matInput />
+      <mat-error *ngIf="name?.hasError('required')"
+        >please enter name</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label> DoB </mat-label>
+      <input formControlName="dob" [matDatepicker]=dp placeholder="dob" matInput />
+      <mat-datepicker-toggle matSuffix [for]=dp></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+      <mat-error *ngIf="dob?.hasError('required')"
+        >please enter Dob</mat-error
+      >
+      <mat-error *ngIf="dob?.hasError('forbiddenDob')"
+        >please enter valid Dob</mat-error
+      >
+      
+    </mat-form-field>
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label> Username </mat-label>
+      <input
+        formControlName="username"
+        placeholder="username"
+        type="text"
+        matInput
+      />
+      <mat-error *ngIf="username?.hasError('required')"
+        >please enter username</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label> Password </mat-label>
+      <input
+        formControlName="password"
+        placeholder="password"
+        type="text"
+        matInput
+      />
+      <mat-error *ngIf="password?.hasError('required')"
+        >please enter password</mat-error
+      >
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="signUp()">Sign Up</button>
+      <button mat-raised-button color="accent" (click)="signUpForm.reset();$event.preventDefault()">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

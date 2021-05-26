@@ -1,0 +1,49 @@
+<!--dash.component.html-->
+<div class="grid-container">
+  <h1 class="mat-h1">Products</h1>
+  <mat-grid-list cols="5" rowHeight="300px" gutterSize="1px">
+    <!--Mini Cards-->
+    <mat-grid-tile
+      style="padding: 15px"
+      *ngFor="let i of products"
+      [colspan]="1"
+      [rowspan]="1"
+    >
+    <!-- <a  [routerLink]="['/detail', i.productId]" > -->
+        <a (click)="details(i)">
+<!--card.component.html-->
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            {{i.productName}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content overflow-hidden">
+        <!-- <img src="./../../../assets/images/logo.jpg" alt="" srcset=""> -->
+        <!-- <img src="{{i}}" alt="" srcset=""> -->
+        <img src="{{i.img}}" alt="" srcset="">
+        {{i.productDesc}}
+    </mat-card-content>
+    <mat-card-actions>
+        ₹ {{i.price}}
+    </mat-card-actions>
+ </mat-card>
+      <!-- <app-card title="{{i.productName}}">
+       
+        <img src="./../../../assets/images/logo.jpg" alt="" srcset="">
+        {{i.productDesc}}
+        <!- - <div>Mini Card Content Here</div> - ->
+    </app-card> -->
+</a>
+    </mat-grid-tile>
+    <!--Charts-->
+    <!-- <mat-grid-tile *ngFor="let i of [5, 6, 7, 8]" [colspan]="( cardLayout | async )?.chart.cols"
+        [rowspan]="( cardLayout | async )?.chart.rows">
+        <app-card title="Card {{i}}"><div>Chart Content Here</div></app-card>
+      </mat-grid-tile>
+      <! --Table- ->
+      <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+        <app-card title="Card 9"><div>Table Content Here</div></app-card>
+      </mat-grid-tile> -->
+  </mat-grid-list>
+</div>

@@ -1,0 +1,70 @@
+<div class="toolbar">
+  <mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      matTooltip="menu"
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="toggleSideNave = !toggleSideNave"
+      [disabled]="!isLoggedIn"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>eShop</span>
+    <span class="example-spacer"></span>
+    <span *ngIf="isLoggedIn">
+      <mat-form-field class="search-field">
+        <input
+          type="text"
+          placeholder="search"
+          matInput
+          [formControl]="search"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </span>
+    <span class="example-spacer"></span>
+    <button *ngIf="isLoggedIn"
+      mat-icon-button
+      matTooltip="wishlist"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button *ngIf="isLoggedIn"
+      mat-icon-button
+      matTooltip="cart"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      routerLink="cart"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <button *ngIf="isLoggedIn"
+      mat-icon-button
+      matTooltip="cart"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      [matMenuTriggerFor]="menu"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+            </button> -->
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button mat-menu-item (click)="logout()">Log out</button>
+      <!-- <button mat-menu-item>Remove</button> -->
+    </mat-menu>
+    <!-- <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button> -->
+  </mat-toolbar>
+  <app-side-nav [toggle]="toggleSideNave"></app-side-nav>
+</div>

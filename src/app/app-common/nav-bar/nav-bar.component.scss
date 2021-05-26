@@ -1,0 +1,18 @@
+.example-spacer {
+  flex: 1 1 auto;
+  
+}
+
+.toolbar {
+    position: relative;
+}
+.search-field{
+  width: 400px;
+  margin-top: 2.5%;
+}
+.search-field input[type=text]{
+  width:700px;
+  height:25px;
+  border-radius:25px;
+  border: none;
+}
